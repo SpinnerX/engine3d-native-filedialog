@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(engine3d-nfd LANGUAGES C CXX)
+project(nfd LANGUAGES C CXX)
 
 if(UNIX AND NOT APPLE)
 

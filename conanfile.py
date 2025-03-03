@@ -7,7 +7,7 @@ from conan.tools.files import copy
 import os
 
 class NativeFileDialog(ConanFile):
-    name = "engine3d-nfd"
+    name = "nfd"
     version = "1.0"
     package_type = "library"
     license = "Appache-2.0"
@@ -67,7 +67,7 @@ class NativeFileDialog(ConanFile):
 
     def package(self):
         copy(self, "LICENSE", src=self.source_folder, dst=os.path.join(self.package_folder, "licenses"))
-        copy(self, pattern="*.h", src=os.path.join(self.source_folder, "engine3d-nfd"), dst=os.path.join(self.package_folder, "engine3d-nfd"))
+        copy(self, pattern="*.h", src=os.path.join(self.source_folder, "nfd"), dst=os.path.join(self.package_folder, "nfd"))
         copy(self, pattern="*.a", src=self.build_folder, dst=os.path.join(self.package_folder, "lib"), keep_path=False)
         copy(self, pattern="*.so", src=self.build_folder, dst=os.path.join(self.package_folder, "lib"), keep_path=False)
         copy(self, pattern="*.lib", src=self.build_folder, dst=os.path.join(self.package_folder, "lib"), keep_path=False)
@@ -77,6 +77,6 @@ class NativeFileDialog(ConanFile):
         cmake.install()
     
     def package_info(self):
-        self.cpp_info.set_property("cmake_target_name", "engine3d-nfd::engine3d-nfd")
-        self.cpp_info.libs = ["engine3d-nfd"]
-        self.cpp_info.includedirs = ['./', './engine3d-nfd']
+        self.cpp_info.set_property("cmake_target_name", "nfd::nfd")
+        self.cpp_info.libs = ["nfd"]
+        self.cpp_info.includedirs = ['./', './nfd']
